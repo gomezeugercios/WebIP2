@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpertIA - Tu experto digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --primary-blue: #1e2a47; /* Azul oscuro header */
+            --accent-orange: #ff7f50; /* Naranja botones/iconos */
+            --gradient-start: #a18cd1; /* Gradiente Hero */
+            --gradient-end: #4facfe;   /* Gradiente Hero */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: white;
+        }
+
+        .btn-client {
+            background-color: #00a8ff;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-client:hover {
+            background-color: #008ecc;
+        }
+
+        /* --- HERO SECTION (BANNER) --- */
+        .hero {
+            /* Degradado similar a la imagen */
+            background: linear-gradient(135deg, #b088f9 0%, #74b9ff 100%); 
+            padding: 4rem 5%;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Elementos decorativos de fondo (círculos abstractos) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta {
+            background-color: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 127, 80, 0.4);
+        }
+
+        /* --- SECCIÓN DE MODELOS --- */
+        .models-section {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .models-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: var(--primary-blue);
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* --- TARJETAS --- */
+        .card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 2rem;
+        }
+
+        /* Colores específicos por tarjeta */
+        .card.gastro .icon-circle {
+            background-color: #ffe0b2; /* Fondo naranja claro */
+            color: #e67e22;
+        }
+
+        .card.salud .icon-circle {
+            background-color: #b3e5fc; /* Fondo azul claro */
+            color: #039be5;
+        }
+
+        .card.edu .icon-circle {
+            background-color: #c8e6c9; /* Fondo verde claro */
+            color: #43a047;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #f1f1f1;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Ocultar menú en móvil para simplificar */
+            .hero h1 { font-size: 2rem; }
+            .cards-container { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ExpertIA</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Modelos</a></li>
+            <li><a href="#">Foro</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <a href="#" class="btn-client">Acceso Clientes</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ExpertIA: Tu experto digital para cada sector.</h1>
+            <button class="btn-cta" onclick="scrollToModels()">Empezar Ahora</button>
+        </div>
+    </header>
+
+    <section class="models-section" id="modelos">
+        <h2>Descubre nuestros Modelos por Ámbito</h2>
+        
+        <div class="cards-container">
+            
+            <div class="card gastro" onclick="selectModel('Gastronomía')">
+                <div class="icon-circle">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Gastronomía</h3>
+                <p>Optimiza tu Restaurante. Gestión de menús, ingredientes y clientela.</p>
+            </div>
+
+            <div class="card salud" onclick="selectModel('Salud')">
+                <div class="icon-circle">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Salud</h3>
+                <p>Gestión Clínica Inteligente. Optimización de citas y recursos médicos.</p>
+            </div>
+
+            <div class="card edu" onclick="selectModel('Educación')">
+                <div class="icon-circle">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Educación</h3>
+                <p>Plataformas de Aprendizaje Adaptativo para instituciones.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ExpertIA. Privacidad | Términos | Cookies</p>
+    </footer>
+
+    <script>
+        // Función para el botón "Empezar Ahora" - Desplazamiento suave
+        function scrollToModels() {
+            const modelsSection = document.getElementById('modelos');
+            modelsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Función para simular la entrada a un modelo específico
+        function selectModel(sector) {
+            // Aquí iría la lógica para cambiar de página, por ejemplo: window.location.href = '/gastronomia';
+            // Por ahora haremos un efecto visual y un alert.
+            alert(`Has seleccionado el módulo: ${sector}.\n\nRedirigiendo a la configuración del experto...`);
+            console.log(`Usuario navegando a: ${sector}`);
+        }
+    </script>
+
+</body>
+</html>
